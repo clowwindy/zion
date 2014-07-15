@@ -20,7 +20,6 @@ def open_tun(name='tunnel'):
     data = struct.pack('@16sh22s', name, 2, '')
     with open('test2', 'wb') as f2:
         f2.write(data)
-    print (ord('T') << 8) | 202
     # if this doesn't work, compile and run main.c and update the number
     fcntl.ioctl(tun_fd, 1074025674, data)
     return tun_fd
